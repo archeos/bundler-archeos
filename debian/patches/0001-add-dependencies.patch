@@ -5,7 +5,74 @@
  ELSE(WIN32)
  #Clapack stuff is not the same under unix system
 -SET(MATH_LIBS lapack cblas cminpack -lgfortran)
-+SET(MATH_LIBS -lblas lapack cblas cminpack -lgfortran)
++SET(MATH_LIBS -lblas -llapack -lminpack -lgfortran)
  ENDIF(WIN32)
  
  #Detect OpenMP
+@@ -24,7 +24,7 @@ else(OPENMP_FOUND)
+ endif (OPENMP_FOUND)
+ 
+ ADD_EXECUTABLE(KeyMatchFull KeyMatchFull.cpp keys2a.cpp)
+-TARGET_LINK_LIBRARIES(KeyMatchFull ann_1.1_char zlib)
++TARGET_LINK_LIBRARIES(KeyMatchFull ann_1.1_char -lz)
+ 
+ ADD_EXECUTABLE(RadialUndistort RadialUndistort.cpp LoadJPEG.cpp)
+ TARGET_LINK_LIBRARIES(RadialUndistort imagelib matrix ${JPEG_LIBRARY} ${MATH_LIBS})
+@@ -32,7 +32,7 @@ TARGET_LINK_LIBRARIES(RadialUndistort im
+ ADD_EXECUTABLE(Bundle2Vis Bundle2Vis.cpp)
+ 
+ ADD_EXECUTABLE(Bundle2PMVS Bundle2PMVS.cpp LoadJPEG.cpp)
+-TARGET_LINK_LIBRARIES(Bundle2PMVS imagelib matrix ${JPEG_LIBRARY} zlib ${MATH_LIBS})
++TARGET_LINK_LIBRARIES(Bundle2PMVS imagelib matrix ${JPEG_LIBRARY} -lz ${MATH_LIBS})
+ 
+ SET(BUNDLER_SOURCES BaseApp.cpp BundlerApp.cpp keys.cpp Register.cpp Epipolar.cpp	
+ 	Bundle.cpp BundleFast.cpp MatchTracks.cpp Camera.cpp Geometry.cpp
+@@ -44,7 +44,7 @@ SET_SOURCE_FILES_PROPERTIES(${BUNDLER_SO
+   PROPERTIES
+   COMPILE_FLAGS "-D__NO_UI__ -D__BUNDLER__ -D__BUNDLER_DISTR__ -D_CRT_SECURE_NO_WARNINGS")
+ ADD_EXECUTABLE(Bundler ${BUNDLER_SOURCES})
+-TARGET_LINK_LIBRARIES(Bundler imagelib sfm-driver sba-1.5 matrix zlib
++TARGET_LINK_LIBRARIES(Bundler imagelib sfm-driver sba-1.5 matrix -lz
+  5point ${JPEG_LIBRARY} ann_1.1_char getopt ${MATH_LIBS})
+ 
+ set(CMAKE_VERBOSE_MAKEFILE ON)
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -4,8 +4,8 @@ ADD_SUBDIRECTORY(imagelib)
+ ADD_SUBDIRECTORY(matrix)
+ ADD_SUBDIRECTORY(sba-1.5)
+ ADD_SUBDIRECTORY(sfm-driver)
+-ADD_SUBDIRECTORY(zlib)
+-ADD_SUBDIRECTORY(cblas)
++#ADD_SUBDIRECTORY(zlib)
++#ADD_SUBDIRECTORY(cblas)
+ ADD_SUBDIRECTORY(getopt)
+ 
+ IF(WIN32)
+@@ -15,6 +15,6 @@ ADD_SUBDIRECTORY(clapack)
+ ADD_SUBDIRECTORY(jpeg)
+ 
+ ELSE(WIN32)
+-ADD_SUBDIRECTORY(cminpack)
++#ADD_SUBDIRECTORY(cminpack)
+ ENDIF(WIN32)
+ 
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,13 +21,14 @@ INCLUDE_DIRECTORIES(
+ )
+ ELSE(WIN32)
+ INCLUDE_DIRECTORIES(
++/include/
+ ./include
+-./lib/zlib/include
++#./lib/zlib/include
+ ./lib/ann_1.1_char/include
+ ./lib/sfm-driver
+ ./lib/matrix
+ ./lib/imagelib
+-./lib/zlib
++#./lib/zlib
+ ./lib/5point
+ ./lib/getopt
+ )
