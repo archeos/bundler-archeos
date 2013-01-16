@@ -1,0 +1,24 @@
+Source: bundlersfm
+Section: photogrammetry
+Priority: extra
+Maintainer: Romain Janvier <romain.janvier@hotmail.fr>
+Build-Depends: debhelper (>= 8.0.0), cmake, libjpeg-dev
+Standards-Version: 3.9.3
+Homepage: http://www.archeos.eu
+#Vcs-Git: git://git.debian.org/collab-maint/bundlersfm.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/bundlersfm.git;a=summary
+
+Package: bundlersfm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Bundler is a SfM system for unordered image collections
+ Bundler takes a set of images, image features, and image matches as input,
+ and produces a 3D reconstruction of camera and (sparse) scene geometry as
+ output. The system reconstructs the scene incrementally, a few images at a
+ time, using a modified version of the Sparse Bundle Adjustment package of
+ Lourakis and Argyros as the underlying optimization engine. Bundler has been
+ successfully run on many Internet photo collections, as well as more
+ structured collections.
+ .
+ This package provide the inital 0.4 version with Pierre Moulon's additions
+ from https://github.com/TheFrenchLeaf/Bundler.

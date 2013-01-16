@@ -1,0 +1,5 @@
+bundlersfm (0.4-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Romain Janvier <romain.janvier@hotmail.fr>  Wed, 16 Jan 2013 13:41:42 +0100
