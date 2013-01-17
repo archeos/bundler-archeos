@@ -2,9 +2,9 @@ Source: bundlersfm
 Section: photogrammetry
 Priority: extra
 Maintainer: Romain Janvier <romain.janvier@hotmail.fr>
-Build-Depends: debhelper (>= 8.0.0), cmake, zlib1g-dev, libjpeg-dev, libblas-dev,
+Build-Depends: debhelper (>= 9.0.0), cmake, zlib1g-dev, libjpeg-dev, libblas-dev,
  gfortran, liblapack-dev, minpack-dev 
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Homepage: http://www.archeos.eu
 #Vcs-Git: git://git.debian.org/collab-maint/bundlersfm.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/bundlersfm.git;a=summary
