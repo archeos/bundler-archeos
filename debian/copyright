@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: bundlersfm
+Upstream-Name: Bundler
 Source: http://phototour.cs.washington.edu/bundler/ and
 https://github.com/TheFrenchLeaf/Bundler
 
@@ -11,9 +11,10 @@ Files: debian/*
 Copyright: 2013 Romain Janvier <romain.janvier@hotmail.fr>
 License: GPL-2.0+
 
-Files: CMakeLists.txt, libs/CMakeLists.txt, src/CMakeLists.txt
+Files: CMakeLists.txt libs/CMakeLists.txt src/CMakeLists.txt
 Copyright: 2010-2012 Pierre Moulon pmoulon@gmail.com
            2010 Kai Ni http://www.kaini.org/
+license: GPL-2.0+
 
 License: GPL-2.0+
  This package is free software; you can redistribute it and/or modify
