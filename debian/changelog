@@ -1,5 +1,7 @@
-bundlersfm (0.4-0archeos1) unstable; urgency=low
+bundlersfm (0.4-0archeos1) theodoric; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release without scripts
+  * Depends on minimal embedded libraries (modified version of ANN is still mandatory)
+  * Compile with GCC/G++ 4.7
 
- -- Romain Janvier <romain.janvier@hotmail.fr>  Wed, 16 Jan 2013 13:41:42 +0100
+ -- Romain Janvier <romain@Archeos>  Thu, 17 Jan 2013 12:01:43 +0100
