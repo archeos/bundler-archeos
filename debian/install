@@ -1,0 +1,3 @@
+RunBundler.sh /usr/share/bundlersfm/
+scripts/extract_focal.pl  /usr/share/bundlersfm
+scripts/ToSift.sh /usr/share/bundlersfm/

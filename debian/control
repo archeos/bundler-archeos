@@ -1,25 +1,32 @@
 Source: bundlersfm
-Section: photogrammetry
+Section: science
 Priority: extra
 Maintainer: Romain Janvier <romain.janvier@hotmail.fr>
 Build-Depends: debhelper (>= 9.0.0), cmake, zlib1g-dev, libjpeg-dev, libblas-dev,
  gfortran, liblapack-dev, minpack-dev 
 Standards-Version: 3.9.4
-Homepage: http://www.archeos.eu
+Homepage: http://phototour.cs.washington.edu/bundler/
 Vcs-Git: git://github.com/archeos/bundler-archeos.git
 Vcs-Browser: https://github.com/archeos/bundler-archeos.git
 
 Package: bundlersfm
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Bundler is a SfM system for unordered image collections
+recommends: jhead, imagemagick
+suggests: ppt, ppt-gui, cmvs-pmvs, vlfeat
+Description: SfM system for unordered image collections
+ From the official website:
  Bundler takes a set of images, image features, and image matches as input,
  and produces a 3D reconstruction of camera and (sparse) scene geometry as
  output. The system reconstructs the scene incrementally, a few images at a
  time, using a modified version of the Sparse Bundle Adjustment package of
- Lourakis and Argyros as the underlying optimization engine. Bundler has been
- successfully run on many Internet photo collections, as well as more
+ Lourakis and Argyros as the underlying optimization engine. Bundler has
+ been successfully run on many Internet photo collections, as well as more
  structured collections.
  .
  This package provide the inital 0.4 version with Pierre Moulon's additions
- from https://github.com/TheFrenchLeaf/Bundler.
+ from https://github.com/TheFrenchLeaf/Bundler. It also includes 'raw'
+ scripts from the original sources but without additional integration to 
+ the distribution (because they rely on Lowe's SIFT). Instead, AcheOS team
+ suggests the use or Python Photogrammetry Toolbox (ppt) and ppt-gui to run
+ Bundler on image collections.  
