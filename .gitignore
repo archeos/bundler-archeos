@@ -1,2 +1,5 @@
 # Quilt
 .pc/
+
+#vim
+*.swp
