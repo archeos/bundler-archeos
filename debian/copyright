@@ -8,9 +8,9 @@ Copyright: 2010 Noah Snavely <snavely@cs.cornell.edu>
 License: GPL-2.0+
 
 Files: lib/ann_1_1_char/*
-Copyright: 1997-2005 University of Maryland
-Authors:   1997-2005 Sunil Arya
-           1997-2005 David Mount
+Copyright: 1997-2005, University of Maryland
+Authors:   1997-2005, Sunil Arya
+           1997-2005, David Mount
 Contributor: 2010 Noah Snavely
 License: LGPL-2.1
 Comment: Bundler is statically linked with this patched version
@@ -18,6 +18,10 @@ Comment: Bundler is statically linked with this patched version
  libann to a char parameter because SIFT descriptors are vectors of 
  char (256 bits).
 
+Files: lib/sba-1.5/*
+Copyright: 2004-2008, Manolis Lourakis, lourakis at ics forth gr
+License: GPL-2.0+
+   
 Files: debian/*
 Copyright: 2013 Romain Janvier <romain.janvier@hotmail.fr>
 License: GPL-2.0+
