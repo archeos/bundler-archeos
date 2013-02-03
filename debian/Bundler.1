@@ -1,0 +1,142 @@
+.TH Bundler "1" "February 2013" "Bundler" "User Commands"
+.SH NAME
+Bundler \- Perform bundle adjustment on an image collection
+.SH SYNOPSIS
+.B Bundler \fI<input.txt> \fR[\fIoptions\fR]
+.SH DESCRIPTION
+Bundler is a structure-from-motion system for unordered image
+.SH OPTION
+.HP
+\fB\-\-run_bundle\fR
+.IP
+Run structure from motion (usually what you want to do)
+.HP
+\fB\-\-rerun_bundle\fR
+.IP
+Reoptimize a reconstruction specified by the \fB\-\-bundle\fR option
+.HP
+\fB\-\-compress_list\fR
+.IP
+Create a 'compressed' list and bundle file, removing
+images that weren't reconstructed.  The list and bundle
+file are written to list.compressed.txt and bundle.compressed.out
+.IP
+[Bundle adjustment options]
+.IP
+[Focal length options]
+.HP
+\fB\-\-init_focal_length\fR <f>
+.IP
+Set initial focal length to <f>
+.HP
+\fB\-\-variable_focal_length\fR
+.IP
+Allow focal lengths to vary for each image
+.HP
+\fB\-\-fixed_focal_length\fR
+.IP
+Fix the focal length for all cameras
+(set to init_focal_length)
+.HP
+\fB\-\-use_focal_estimate\fR
+.IP
+Initialize using focal length estimates specified
+in the list file
+.HP
+\fB\-\-trust_focal_estimate\fR
+.IP
+Trust the provided focal length estimates (i.e.,
+don't attempt to cross\-check with self\-calibration)
+.HP
+\fB\-\-constrain_focal\fR
+.IP
+Add a soft constraint on focal lengths to stay near
+their estimated values
+.HP
+\fB\-\-constrain_focal_weight\fR <weight>
+.IP
+Strength of the focal length constraints.
+Default is 0.0001.
+.IP
+[Other bundle adjustment options]
+.HP
+\fB\-\-fisheye\fR <paramfile>
+.IP
+Read fisheye parameters from given file
+.HP
+\fB\-\-init_pair1\fR <img1>
+.HP
+\fB\-\-init_pair2\fR <img2>
+.IP
+Indices of the images with which to seed
+bundle adjustment
+.HP
+\fB\-\-estimate_distortion\fR
+.IP
+Estimate radial distortion parameters (2 coefficients)
+.HP
+\fB\-\-ray_angle_threshold\fR <degrees>
+.IP
+Don't triangulate points whose rays have an angle less
+than <degrees>.  Default is 2 degrees.
+.HP
+\fB\-\-projection_estimation_threshold\fR <thres>
+.IP
+Use a RANSAC threshold of <thres> when doing
+pose estimation to add in a new image.  Default is 4.
+.HP
+\fB\-\-min_proj_error_threshold\fR <min>
+.HP
+\fB\-\-max_proj_error_threshold\fR <max>
+.IP
+The minimum and maximum values of the adaptive outlier
+threshold.  Defaults are 8 and 16.
+.HP
+\fB\-\-bundle\fR <file>
+.IP
+Read previous bundle adjustment results from <file>
+.HP
+\fB\-\-ignore_file\fR <file>
+.IP
+Don't try to register any image whose index appears in <file>
+.HP
+\fB\-\-slow_bundle\fR
+.IP
+Run the slow version of bundle adjustment (adds one
+image at a time)
+.IP
+[Output options]
+.HP
+\fB\-\-output\fR <file>
+.IP
+Save bundle adjustment output to <file>
+.HP
+\fB\-\-output_all\fR <base>
+.IP
+Save intermediate bundle adjustment results
+.HP
+\fB\-\-output_dir\fR
+.IP
+Specifies the directory in which to save output files
+.IP
+[Other options]
+.HP
+\fB\-\-options_file\fR <file>
+.IP
+Read options from <file>.
+.HP
+\fB\-\-match_dir\fR <dir>
+.IP
+Specifies the directory where the match\-*\-*.txt
+files are stored.
+.HP
+\fB\-\-help\fR
+.IP
+Print this message
+.PP
+.SH "SEE ALSO"
+Bundle2PMVS(1), Bundle2Vis(1), KeyMatchFull(1), RadialUndistort(1)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Noah Snavly, (snavely@cs.cornell.edu)
